@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block thebody %}
+    <h1>Wordle Clone</h1>
+    <h2>{{title}}</h2>
+
+    <p>Enter your five letters in this box, separating each word by a space:<p>
+    <form action='/processwords' method='post'>
+        <input type='text' required autofocus size=100 name='seven_words'>
+        <p>
+        <input type='submit' value='Done!'>
+        </p>
+    </form>
+{% endblock %}
