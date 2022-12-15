@@ -15,12 +15,32 @@ def pre_process_words() -> None:
                         print(word, file=five_letter_words)
 
 
-def get_source_word() -> str:
+def get_source_word():
     """Randomly grab a source word from the five letter words file."""
-    with open(FIVE_LETTER_WORDS) as five:
-        word = random.choice(five.readlines())
-    print(word.strip())
-    return word.strip()
+    # with open(FIVE_LETTER_WORDS) as five:
+    #     word = random.choice(five.readlines())
+    # return word
+    word = 'train'
+    return word
 
 
-get_source_word()
+def allCharactersSame(source):
+    n = len(source)
+    print(n)
+    input_word = input('Enter a word: ')
+    print(input_word)
+    for i in range(0, n):
+        print(input_word[i])
+        if input_word[i] == source[i]:
+            return True
+    return False
+
+
+# Driver code
+if __name__ == "__main__":
+
+    s = get_source_word()
+    if allCharactersSame(s):
+        print("Yes")
+    else:
+        print("No")
