@@ -17,30 +17,58 @@ def pre_process_words() -> None:
 
 def get_source_word():
     """Randomly grab a source word from the five letter words file."""
-    # with open(FIVE_LETTER_WORDS) as five:
-    #     word = random.choice(five.readlines())
-    # return word
-    word = 'train'
+    with open(FIVE_LETTER_WORDS) as five:
+        word = random.choice(five.readlines())
+
     return word
 
 
-def allCharactersSame(source):
-    n = len(source)
-    print(n)
-    input_word = input('Enter a word: ')
-    print(input_word)
-    for i in range(0, n):
-        print(input_word[i])
-        if input_word[i] == source[i]:
+def all_chars_same(source):
+    n = 0
+    if n <= len(source):
+        n = n + 1
+        if input_word[n] == source[n]:
+            print(input_word[n])
             return True
+
     return False
 
 
 # Driver code
 if __name__ == "__main__":
 
+    input_word = input("Enter a 5 letter word: ")
+
     s = get_source_word()
-    if allCharactersSame(s):
+    num_tries = 0
+
+    if all_chars_same(s):
         print("Yes")
     else:
-        print("No")
+        while num_tries <= 5:
+            if len(input_word) == 5:
+                pass
+            else:
+                while len(input_word) != 5:
+                    print("Your word must be 5 letters long")
+                    input_word = input("Enter a 5 letter word: ")
+
+            num_tries = num_tries + 1
+            if num_tries == 5:
+                print("Sorry you lose, the correct word was " + s)
+
+            print("Your word is incorrect, try again")
+            input_word = input("Enter a 5 letter word: ")
+
+
+
+
+
+# def letters_in_correct_position(source):
+#     for i in range(0, len(source)):
+#         if input_word[i] == source[i]:
+#             print(input_word[i].strip())
+#             # these letter would change to green as they are in the correct position
+#
+# def letters_present_but_wrong_position(source):
+#     pass
